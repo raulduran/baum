@@ -70,7 +70,9 @@ class Move {
     $this->target   = $this->resolveNode($target);
     $this->position = $position;
 
-    $this->setEventDispatcher($node->getEventDispatcher());
+    if ($node->getEventDispatcher() instanceof Dispatcher) {
+      $this->setEventDispatcher($node->getEventDispatcher());
+    }
   }
 
   /**
